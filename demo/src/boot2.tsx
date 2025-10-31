@@ -1,0 +1,20 @@
+import React, { useState } from 'react'
+import './index.css'
+import Landing from './components/Landing2'
+import Dashboard from './components/Dashboard2'
+
+const RootApp: React.FC = () => {
+  const [showLanding, setShowLanding] = useState(true)
+
+  return (
+    <div>
+      {showLanding ? (
+        <Landing onComplete={() => setShowLanding(false)} />
+      ) : (
+        <Dashboard />
+      )}
+    </div>
+  )
+}
+
+export default RootApp

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Kamille 💕</title>
+    <link rel="stylesheet" href="lovely.css" />
+  </head>
+  <body>
+    <!-- Animated flower petals overlay -->
+    <div id="petal-overlay"></div>
+    <div class="flip-container">
+      <div class="flip-card" id="flipCard">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="card-front-content">
+              <div class="envelope-graphic">
+                <svg width="90" height="60" viewBox="0 0 90 60"><rect x="5" y="10" width="80" height="40" rx="8" fill="#fff0f6" stroke="#e75480" stroke-width="2"/><polyline points="5,10 45,40 85,10" fill="none" stroke="#e75480" stroke-width="2"/></svg>
+              </div>
+              <div class="petal-deco" style="margin-bottom:0.5em;">
+                <svg width="80" height="38" viewBox="0 0 80 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Left petal -->
+                  <path d="M18 24 Q10 10 22 10 Q18 18 18 24 Z" fill="#e75480" fill-opacity="0.7"/>
+                  <!-- Center petal -->
+                  <path d="M40 8 Q36 22 44 22 Q40 16 40 8 Z" fill="#e75480" fill-opacity="0.9"/>
+                  <!-- Right petal -->
+                  <path d="M62 24 Q70 10 58 10 Q62 18 62 24 Z" fill="#e75480" fill-opacity="0.7"/>
+                  <!-- Heart stroke -->
+                  <path d="M40 30 C44 26, 54 32, 40 36 C26 32, 36 26, 40 30 Z" stroke="#e75480" stroke-width="2.2" fill="none"/>
+                  <!-- Heart fill (subtle) -->
+                  <path d="M40 30 C44 26, 54 32, 40 36 C26 32, 36 26, 40 30 Z" fill="#e75480" fill-opacity="0.13"/>
+                </svg>
+              </div>
+              <h2 style="font-family:'Great Vibes',cursive;color:#e75480;font-size:2.2em;margin:1em 0 0.5em 0;">A Little Note</h2>
+              <p style="font-size:1.1em;color:#b03a5b;">Click to open</p>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="card-back-content">
+              <div class="love-stamp">
+                <svg width="70" height="70" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="32" fill="#fff0f6" stroke="#e75480" stroke-width="3"/>
+                  <text x="50%" y="54%" text-anchor="middle" font-size="2.5em" fill="#e75480" font-family="'Great Vibes',cursive">💌</text>
+                </svg>
+              </div>
+              <h1 style="font-size:1.6em;margin-top:0.2em;">Hey Babe!</h1>
+              <div class="flower-divider"></div>
+              <p style="font-size:1em;margin-top:1.1em;line-height:1.6;">Just wanted to say hi.<br><br>
+              And by the way, don't even think about finding someone else.<br>
+              (Just kidding hahahaha! But seriously, babe—pursue what makes you happy, stay positive, and always remember that God will provide. No matter what, I’ll always be happy for you! 😌)
+              </p>
+              <div class="flower-divider"></div>
+              <p style="font-size:0.97em;margin-top:1.1em;line-height:1.6;">I'm here supporting you, even if I'm not by your side.<br>
+              Hope you and your family are doing good and great.</p>
+              <div class="flower-divider"></div>
+              <p style="margin-top:1.2em;font-size:0.99em;color:#7a3a5a;">Many years have passed, and right now we're both close to who we want to be.<br><br><span style="color:#e75480;font-weight:bold;">Wishing you all the best, always.</span><p></p>
+              <p style="margin-top:1.1em;font-size:0.97em;color:#b03a5b;">No sugarcoating. Just facts.😚<br>— Jan, 愛してる.</p>
+              <!-- removed internal timeline button (moved below card) -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- External controls placed below the card: file upload + timeline button -->
+    <div class="external-controls" style="display:flex;flex-direction:column;align-items:center;gap:0.9rem;margin:1.6rem 0 2.2rem;z-index:2;">
+      <div id="uploadArea" class="upload-area" style="width:370px;max-width:95vw;border-radius:16px;background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);padding:0.9rem 1rem;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;gap:0.8rem;">
+        <div style="display:flex;align-items:center;gap:0.8rem;min-width:0;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;">
+            <path d="M12 2v10" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M5 13l7-7 7 7" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M21 21H3" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div id="fileName" style="font-size:0.95em;color:#5a3a5a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">No file selected</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <label for="fileInput" class="action-btn" style="padding:0.55em 1.1em;border-radius:20px;cursor:pointer;">Choose</label>
+          <input id="fileInput" type="file" style="display:none;" />
+        </div>
+      </div>
+      <div style="display:flex;gap:0.6rem;">
+        <button id="timelineBtn" class="action-btn" aria-label="Open photo timeline">View Photo Timeline</button>
+      </div>
+      <div id="previewContainer" style="max-width:370px;max-width:95vw;display:flex;justify-content:center;
+        align-items:center;margin-top:0.6rem;">
+        <!-- image preview will be injected here -->
+      </div>
+    </div>
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        /* Animated gradient background */
+        background: linear-gradient(120deg, #ffe0ec, #b8c6ff, #f7d9e3, #e0c3fc);
+        background-size: 300% 300%;
+        animation: gradientMove 12s ease-in-out infinite;
+      }
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .flip-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .flip-card {
+        background: transparent;
+        width: 370px;
+        height: 420px;
+        perspective: 1200px;
+        cursor: pointer;
+        max-width: 95vw;
+        max-height: 90vh;
+      }
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(.4,1.6,.4,1);
+        transform-style: preserve-3d;
+      }
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 28px;
+        box-shadow: 0 8px 32px 0 rgba(231, 84, 128, 0.18), 0 1.5px 8px 0 rgba(31, 38, 135, 0.10);
+        background: rgba(255,255,255,0.22);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border: 1.5px solid rgba(255,255,255,0.35);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2em 1.2em 1.2em 1.2em;
+        box-sizing: border-box;
+        overflow-y: auto;
+        min-height: 0;
+      }
+      .card-front-content, .card-back-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        min-height: 340px;
+        box-sizing: border-box;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+      .flip-card-front {
+        z-index: 2;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+        z-index: 1;
+      }
+      .envelope-graphic {
+        margin-bottom: 1.2em;
+      }
+      .love-stamp {
+        margin-bottom: 1.2em;
+        animation: pop 1.2s cubic-bezier(.4,1.6,.4,1);
+      }
+      @keyframes pop {
+        0% { transform: scale(0.2); opacity: 0; }
+        70% { transform: scale(1.15); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+    </style>
+    <script>
+      // Flip card on click
+      document.getElementById('flipCard').addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+    </script>
+    <script>
+      // Timeline button handler: navigate to timeline.html in the same folder
+      const timelineBtn = document.getElementById('timelineBtn');
+      if (timelineBtn) {
+        timelineBtn.addEventListener('click', () => {
+          window.location.href = 'timeline.html';
+        });
+      }
+    </script>
+    <script>
+      // Upload area: file input, drag/drop and preview
+      (function(){
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const uploadArea = document.getElementById('uploadArea');
+        const previewContainer = document.getElementById('previewContainer');
+
+        function showPreview(file) {
+          previewContainer.innerHTML = '';
+          if (!file) return;
+          if (!file.type.startsWith('image/')) {
+            fileName.textContent = file.name + ' (not an image)';
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = function(e){
+            const wrap = document.createElement('div');
+            wrap.className = 'upload-preview';
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = file.name;
+            wrap.appendChild(img);
+            previewContainer.appendChild(wrap);
+          };
+          reader.readAsDataURL(file);
+        }
+
+        if (fileInput) {
+          fileInput.addEventListener('change', (ev)=>{
+            const f = ev.target.files && ev.target.files[0];
+            if (f) {
+              fileName.textContent = f.name;
+              showPreview(f);
+            }
+          });
+        }
+
+        // Drag & drop
+        if (uploadArea) {
+          ['dragenter','dragover'].forEach(evt => uploadArea.addEventListener(evt, e=>{ e.preventDefault(); e.stopPropagation(); uploadArea.classList.add('dragover'); }));
+          ['dragleave','drop'].forEach(evt => uploadArea.addEventListener(evt, e=>{ e.preventDefault(); e.stopPropagation(); uploadArea.classList.remove('dragover'); }));
+          uploadArea.addEventListener('drop', e=>{
+            const f = e.dataTransfer.files && e.dataTransfer.files[0];
+            if (f) {
+              if (fileInput) fileInput.files = e.dataTransfer.files; // set files for consistency
+              fileName.textContent = f.name;
+              showPreview(f);
+            }
+          });
+        }
+      })();
+    </script>
+    <script>
+      // Animated flower petals
+      function createPetal() {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = (6 + Math.random() * 4) + 's';
+        petal.style.opacity = 0.7 + Math.random() * 0.3;
+        // SVG flower petal (pink)
+        petal.innerHTML = `<svg viewBox="0 0 32 32" class="svg-icon"><path d="M16 2C10 10 2 18 16 30C30 18 22 10 16 2Z" fill="#e75480"/></svg>`;
+        document.getElementById('petal-overlay').appendChild(petal);
+        setTimeout(() => petal.remove(), 9000);
+      }
+      setInterval(createPetal, 600);
+    </script>
+  </body>
+</html>

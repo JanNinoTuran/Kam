@@ -1,0 +1,27 @@
+{
+  "name": "kam",
+  "version": "1.0.0",
+  "description": "🌟 Project Showcase: A Special HTML, CSS &amp; JS Creation! 🌟Just finished this fun project where I used HTML, CSS, and JavaScript to create something special. It’s a digital message for someone very important to me: \"I Love You.\" ❤Check it out and let me know what you think",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanNinoTuran/Kam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JanNinoTuran/Kam/issues"
+  },
+  "homepage": "https://github.com/JanNinoTuran/Kam#readme",
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2"
+  }
+}
