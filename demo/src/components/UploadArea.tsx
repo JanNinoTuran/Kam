@@ -1,33 +1,45 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef, type DragEvent, type ChangeEvent, type FC } from 'react';
 
 interface UploadAreaProps {
-  onFilesUploaded: (files: File[]) => void;
+  onFilesUploaded?: (files: File[]) => void;
+  /** If provided, the first selected file will be passed to this callback and the modal can be opened for captioning */
+  onSelectForModal?: (file: File) => void;
 }
 
-const UploadArea: React.FC<UploadAreaProps> = ({ onFilesUploaded }) => {
+const UploadArea: FC<UploadAreaProps> = ({ onFilesUploaded, onSelectForModal }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragOver(true);
   };
 
-  const handleDragLeave = (e: React.DragEvent) => {
+  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragOver(false);
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragOver(false);
     const files = Array.from(e.dataTransfer.files);
-    onFilesUploaded(files);
+    if (onSelectForModal && files.length > 0) {
+      onSelectForModal(files[0])
+      if (files.length > 1 && onFilesUploaded) onFilesUploaded(files.slice(1))
+    } else {
+      if (onFilesUploaded) onFilesUploaded(files)
+    }
   };
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    onFilesUploaded(files);
+    if (onSelectForModal && files.length > 0) {
+      onSelectForModal(files[0])
+      if (files.length > 1 && onFilesUploaded) onFilesUploaded(files.slice(1))
+    } else {
+      if (onFilesUploaded) onFilesUploaded(files)
+    }
   };
 
   const handleClick = () => {

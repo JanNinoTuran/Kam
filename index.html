@@ -47,7 +47,7 @@
               <div class="flower-divider"></div>
               <p style="font-size:1em;margin-top:1.1em;line-height:1.6;">Just wanted to say hi.<br><br>
               And by the way, don't even think about finding someone else.<br>
-              (Just kidding hahahaha! But seriously, babe—pursue what makes you happy, stay positive, and always remember that God will provide. No matter what, I’ll always be happy for you! 😌)
+              (Just kidding hahahaha, but seriously babe seek what's make you happy I'm still happy for you no matter what! 😌)
               </p>
               <div class="flower-divider"></div>
               <p style="font-size:0.97em;margin-top:1.1em;line-height:1.6;">I'm here supporting you, even if I'm not by your side.<br>
@@ -55,34 +55,9 @@
               <div class="flower-divider"></div>
               <p style="margin-top:1.2em;font-size:0.99em;color:#7a3a5a;">Many years have passed, and right now we're both close to who we want to be.<br><br><span style="color:#e75480;font-weight:bold;">Wishing you all the best, always.</span><p></p>
               <p style="margin-top:1.1em;font-size:0.97em;color:#b03a5b;">No sugarcoating. Just facts.😚<br>— Jan, 愛してる.</p>
-              <!-- removed internal timeline button (moved below card) -->
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- External controls placed below the card: file upload + timeline button -->
-    <div class="external-controls" style="display:flex;flex-direction:column;align-items:center;gap:0.9rem;margin:1.6rem 0 2.2rem;z-index:2;">
-      <div id="uploadArea" class="upload-area" style="width:370px;max-width:95vw;border-radius:16px;background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);padding:0.9rem 1rem;box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;gap:0.8rem;">
-        <div style="display:flex;align-items:center;gap:0.8rem;min-width:0;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;">
-            <path d="M12 2v10" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M5 13l7-7 7 7" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M21 21H3" stroke="#e75480" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <div id="fileName" style="font-size:0.95em;color:#5a3a5a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">No file selected</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-          <label for="fileInput" class="action-btn" style="padding:0.55em 1.1em;border-radius:20px;cursor:pointer;">Choose</label>
-          <input id="fileInput" type="file" style="display:none;" />
-        </div>
-      </div>
-      <div style="display:flex;gap:0.6rem;">
-        <button id="timelineBtn" class="action-btn" aria-label="Open photo timeline">View Photo Timeline</button>
-      </div>
-      <div id="previewContainer" style="max-width:370px;max-width:95vw;display:flex;justify-content:center;
-        align-items:center;margin-top:0.6rem;">
-        <!-- image preview will be injected here -->
       </div>
     </div>
     <style>
@@ -181,68 +156,6 @@
       document.getElementById('flipCard').addEventListener('click', function() {
         this.classList.toggle('flipped');
       });
-    </script>
-    <script>
-      // Timeline button handler: navigate to timeline.html in the same folder
-      const timelineBtn = document.getElementById('timelineBtn');
-      if (timelineBtn) {
-        timelineBtn.addEventListener('click', () => {
-          window.location.href = 'timeline.html';
-        });
-      }
-    </script>
-    <script>
-      // Upload area: file input, drag/drop and preview
-      (function(){
-        const fileInput = document.getElementById('fileInput');
-        const fileName = document.getElementById('fileName');
-        const uploadArea = document.getElementById('uploadArea');
-        const previewContainer = document.getElementById('previewContainer');
-
-        function showPreview(file) {
-          previewContainer.innerHTML = '';
-          if (!file) return;
-          if (!file.type.startsWith('image/')) {
-            fileName.textContent = file.name + ' (not an image)';
-            return;
-          }
-          const reader = new FileReader();
-          reader.onload = function(e){
-            const wrap = document.createElement('div');
-            wrap.className = 'upload-preview';
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = file.name;
-            wrap.appendChild(img);
-            previewContainer.appendChild(wrap);
-          };
-          reader.readAsDataURL(file);
-        }
-
-        if (fileInput) {
-          fileInput.addEventListener('change', (ev)=>{
-            const f = ev.target.files && ev.target.files[0];
-            if (f) {
-              fileName.textContent = f.name;
-              showPreview(f);
-            }
-          });
-        }
-
-        // Drag & drop
-        if (uploadArea) {
-          ['dragenter','dragover'].forEach(evt => uploadArea.addEventListener(evt, e=>{ e.preventDefault(); e.stopPropagation(); uploadArea.classList.add('dragover'); }));
-          ['dragleave','drop'].forEach(evt => uploadArea.addEventListener(evt, e=>{ e.preventDefault(); e.stopPropagation(); uploadArea.classList.remove('dragover'); }));
-          uploadArea.addEventListener('drop', e=>{
-            const f = e.dataTransfer.files && e.dataTransfer.files[0];
-            if (f) {
-              if (fileInput) fileInput.files = e.dataTransfer.files; // set files for consistency
-              fileName.textContent = f.name;
-              showPreview(f);
-            }
-          });
-        }
-      })();
     </script>
     <script>
       // Animated flower petals

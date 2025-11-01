@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import ScrollTimeline from './components/lightswind/scroll-timeline2'
 import UploadArea from './components/UploadArea'

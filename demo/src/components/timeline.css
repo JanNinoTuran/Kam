@@ -1,0 +1,36 @@
+.tl-root{padding:20px}
+.tl-container{position:relative;max-width:920px;margin:0 auto}
+/* put the vertical line to the right so items sit on the left */
+.tl-line{position:absolute;left:260px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#ffd6e8 0%, #ffc1dd 60%, #ffeef8 100%);opacity:0.95;border-radius:3px;box-shadow:0 4px 18px rgba(255,120,170,0.08)}
+.tl-groups{display:flex;flex-direction:column;gap:26px}
+.tl-group-label{margin-left:12px;font-weight:700;color:#ff6b9a;margin-bottom:6px;font-size:1rem}
+.tl-items{display:flex;flex-direction:column;gap:18px}
+
+/* each item: content to the left, node sits near the line on the right */
+.tl-item{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:6px 0}
+.tl-content{display:flex;gap:12px;align-items:flex-start;max-width:220px}
+.tl-photo{width:140px;height:96px;object-fit:cover;border-radius:12px;box-shadow:0 8px 24px rgba(255,105,160,0.08);filter:drop-shadow(0 4px 12px rgba(255,105,160,0.06))}
+.tl-meta{display:flex;flex-direction:column;gap:6px}
+.tl-title{font-weight:700;color:#3b1f2b;font-family: 'Georgia', 'Times New Roman', serif}
+.tl-caption{font-size:0.95rem;color:#6b3b53;font-style:italic}
+.tl-date{font-size:0.8rem;color:#a3718a;margin-top:4px}
+
+.tl-node{width:20px;height:20px;border-radius:50%;background:linear-gradient(180deg,#fff,#ffeef5);border:4px solid #ff6b9a;box-shadow:0 6px 18px rgba(255,105,160,0.12);margin-right:18px;flex:0 0 auto;position:relative}
+.tl-node::after{content:'\2665';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;color:#ff6b9a;filter:drop-shadow(0 1px 0 #ffffff88)}
+
+/* subtle backdrop and romantic touches */
+.tl-container::before{content:'';position:absolute;left:0;right:0;top:0;height:160px;background:linear-gradient(180deg, rgba(255,230,240,0.12), transparent);pointer-events:none}
+
+@media (max-width:780px){
+  .tl-line{left:36px}
+  .tl-item{flex-direction:row}
+  .tl-content{max-width:calc(100% - 84px)}
+  .tl-photo{width:120px;height:92px}
+  .tl-node{margin-right:8px}
+}
+
+@media (max-width:480px){
+  .tl-content{flex-direction:column;max-width:100%}
+  .tl-photo{width:100%;height:180px}
+  .tl-line{left:20px}
+}

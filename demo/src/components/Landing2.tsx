@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect, type FC } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 
 interface LandingProps {
@@ -18,30 +18,32 @@ const overlayVariants = {
   out: { opacity: 0, transition: { duration: 1.2 } },
 }
 
-const Landing: React.FC<LandingProps> = ({ onComplete }) => {
+const Landing: FC<LandingProps> = ({ onComplete }) => {
   const controls = useAnimation()
   const leftControls = useAnimation()
   const rightControls = useAnimation()
   const titleControls = useAnimation()
 
   const titleVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1.0 } },
+    hidden: { opacity: 0, y: 20, scale: 0.92 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1.0, delay: 0.12 } },
     exit: { opacity: 0, scale: 1.06, transition: { duration: 0.9 } },
   }
 
   useEffect(() => {
     const seq = async () => {
-      // open both doors and show title together
-      await Promise.all([
-        leftControls.start('openLeft'),
-        rightControls.start('openRight'),
-        titleControls.start('visible'),
-      ])
+      // start doors and title so the title animates while doors open
+      const leftPromise = leftControls.start('openLeft')
+      const rightPromise = rightControls.start('openRight')
+      // title is shorter and starts immediately with a tiny delay (see variant)
+      titleControls.start('visible')
 
-      // after doors started, flash overlay
-  await controls.start('flash')
-  await new Promise((r) => setTimeout(r, 600))
+      // wait for doors to finish opening
+      await Promise.all([leftPromise, rightPromise])
+
+      // flash overlay and finish sequence
+      await controls.start('flash')
+      await new Promise((r) => setTimeout(r, 600))
 
       // fade title out as we finish
       await titleControls.start('exit')

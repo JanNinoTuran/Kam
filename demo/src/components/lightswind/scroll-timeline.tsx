@@ -1,7 +1,7 @@
 // How to import:
 // import { ScrollTimeline } from "@/components/lightswind/scroll-timeline"
 
-import React, { useRef } from "react";
+import { useRef, type FC } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { cn } from "../lib/utils";
 import { Card, CardContent } from "./card";
@@ -29,7 +29,7 @@ const DEFAULT_EVENTS: TimelineEvent[] = [
   { year: "2021", title: "Key Event", description: "A key event." },
 ];
 
-export const ScrollTimeline: React.FC<ScrollTimelineProps> = ({
+export const ScrollTimeline: FC<ScrollTimelineProps> = ({
   events = DEFAULT_EVENTS,
   title = "Timeline",
   subtitle = "Scroll to explore",

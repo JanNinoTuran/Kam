@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState, type FC } from 'react'
 import './index.css'
 import Landing from './components/Landing2'
 import Dashboard from './components/Dashboard2'
 
-const RootApp: React.FC = () => {
+const RootApp: FC = () => {
   const [showLanding, setShowLanding] = useState(true)
 
   return (

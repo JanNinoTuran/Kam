@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, type ChangeEvent, type FormEvent, type FC } from 'react'
 
 interface UploadFormProps {
   onUpload: (files: File[], date?: string) => void
 }
 
-const UploadForm: React.FC<UploadFormProps> = ({ onUpload }) => {
+const UploadForm: FC<UploadFormProps> = ({ onUpload }) => {
   const fileRef = useRef<HTMLInputElement | null>(null)
   const [selectedDate, setSelectedDate] = useState<string>('')
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
@@ -24,12 +24,12 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload }) => {
     if (imgs.length) setSelectedFiles((prev) => [...prev, ...imgs])
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
     handleFiles(files)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     if (selectedFiles.length) {
       onUpload(selectedFiles, selectedDate || undefined)

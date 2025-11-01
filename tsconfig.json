@@ -15,5 +15,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "index.html"]
+  "include": ["src/**/*", "demo/src/**/*", "index.html"]
 }

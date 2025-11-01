@@ -1,81 +1,16 @@
-/* Lovely Book Redesign - Elegant, Romantic, Animated */
+/* Lovely Book - cleaned stylesheet (duplicates and merge markers removed) */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
 
+/* Page base */
 body {
   min-height: 100vh;
   margin: 0;
   background: linear-gradient(120deg, #ffe0ec 0%, #f7d9e3 50%, #b8c6ff 100%);
   font-family: 'Montserrat', Arial, sans-serif;
   overflow-x: hidden;
-  position: relative;
-  color: #3a2c3a;
-  letter-spacing: 0.01em;
-  font-size: 1.08em;
-}
+  .external-controls .action-btn { min-width:140px }
 
-.floating-flowers {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.flower {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  opacity: 0.7;
-  animation: float 12s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh) scale(0.7) rotate(0deg); opacity: 0.7; }
-  80% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1.1) rotate(360deg); opacity: 0; }
-}
-
-.book-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-  z-index: 1;
-}
-
-.lovely-book {
-  background: rgba(255,255,255,0.92);
-  box-shadow: 0 8px 32px 0 rgba(231, 84, 128, 0.13), 0 1.5px 8px 0 rgba(31, 38, 135, 0.10);
-  border-radius: 36px;
-  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
-  max-width: 440px;
-  width: 97vw;
-  min-height: 600px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  border: 2.5px solid #ffb6d5;
-  transition: box-shadow 0.3s;
-}
-
-.lovely-book h1, .lovely-book h2 {
-  font-family: 'Great Vibes', cursive;
-  color: #e75480;
-  margin-bottom: 0.5em;
-  text-shadow: 0 2px 8px #ffe0ec99, 0 1px 0 #fff;
-}
-
-.lovely-book h1 {
-  font-size: 2.7em;
-  margin-top: 0.2em;
-  letter-spacing: 0.04em;
-}
-
-.lovely-book h2 {
-  font-size: 1.8em;
-  font-weight: 400;
-}
-
+  /* EOF cleaned */
 .lovely-book p {
   font-size: 1.13em;
   color: #5a3a5a;
@@ -201,26 +136,5 @@ body {
     font-size: 1.1em;
   }
 }
-
-/* Upload area and preview */
-.upload-area {
-  border: 1px dashed rgba(231,84,128,0.22);
-  transition: background 0.12s, border-color 0.12s, transform 0.12s;
+/* EOF cleaned */
 }
-.upload-area.dragover {
-  background: linear-gradient(90deg, rgba(231,84,128,0.06), rgba(184,198,255,0.06));
-  border-color: rgba(231,84,128,0.6);
-  transform: translateY(-2px);
-}
-
-.upload-preview {
-  width: 100%;
-  max-width: 370px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-.upload-preview img { display:block; width:100%; height:auto; }
-
-.external-controls .action-btn { min-width: 140px; }
-

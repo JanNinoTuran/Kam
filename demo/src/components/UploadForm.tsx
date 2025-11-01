@@ -1,19 +1,19 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState, type ChangeEvent, type FormEvent, type FC } from 'react'
 
 interface UploadFormProps {
   onUpload: (files: File[], date?: string) => void
 }
 
-const UploadForm: React.FC<UploadFormProps> = ({ onUpload }) => {
+const UploadForm: FC<UploadFormProps> = ({ onUpload }) => {
   const fileRef = useRef<HTMLInputElement | null>(null)
   const [selectedDate, setSelectedDate] = useState<string>('')
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
     if (files.length) onUpload(files, selectedDate || undefined)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     const files = Array.from(fileRef.current?.files || [])
     if (files.length) onUpload(files, selectedDate || undefined)
@@ -28,7 +28,7 @@ const UploadForm: React.FC<UploadFormProps> = ({ onUpload }) => {
           onChange={(e) => setSelectedDate(e.target.value)}
           className="p-2 border rounded"
         />
-        <input type="file" ref={fileRef} accept="image/*" multiple className="p-2" />
+  <input type="file" ref={fileRef} accept="image/*" multiple className="p-2" onChange={handleFileChange} />
         <button type="submit" className="px-4 py-2 bg-pink-500 text-white rounded">
           Upload
         </button>
